@@ -1,0 +1,42 @@
+{
+  "message": "Request failed with status code 504",
+  "name": "AxiosError",
+  "stack": "AxiosError: Request failed with status code 504\n    at settle (/Users/admin/Desktop/MUC_TIEU/PROJECT_MANAGER_IT/FRONTEND/database-report-reactjs/node_modules/axios/dist/node/axios.cjs:2019:12)\n    at IncomingMessage.handleStreamEnd (/Users/admin/Desktop/MUC_TIEU/PROJECT_MANAGER_IT/FRONTEND/database-report-reactjs/node_modules/axios/dist/node/axios.cjs:3135:11)\n    at IncomingMessage.emit (node:events:529:35)\n    at endReadableNT (node:internal/streams/readable:1400:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)\n    at Axios.request (/Users/admin/Desktop/MUC_TIEU/PROJECT_MANAGER_IT/FRONTEND/database-report-reactjs/node_modules/axios/dist/node/axios.cjs:4287:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Timeout.greet [as _onTimeout] (/Users/admin/Desktop/MUC_TIEU/PROJECT_MANAGER_IT/FRONTEND/database-report-reactjs/test.js:11:23)",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "adapter": [
+      "xhr",
+      "http",
+      "fetch"
+    ],
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "env": {},
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer 89d12489-2edb-45ca-a644-6756d90ff372",
+      "ProjectId": "1432",
+      "Custom-Header": "YourValue",
+      "User-Agent": "axios/1.7.7",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "get",
+    "url": "https://api.gateway.overate-vntech.com/api/v1/channel-order-foods/orders?&restaurant_id=2252&restaurant_brand_id=2778&area_id=-1&branch_id=3395&is_have_restaurant_order=0&customer_order_status=0%2c8&is_app_food=-1&channel_order_food_id=-1"
+  },
+  "code": "ERR_BAD_RESPONSE",
+  "status": 504
+}

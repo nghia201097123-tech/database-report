@@ -1,0 +1,215 @@
+/* Navbar base styles */
+.navbar {
+  background: linear-gradient(to right, #0a0a1a, #111827);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+/* Brand styles */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #ffffff, #e5e5e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    letter-spacing: 1px;
+  }
+}
+
+/* Hamburger button */
+.navbar__toggle {
+  display: none; /* By default, hide the hamburger button */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  margin-left: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Navbar links */
+.navbar__links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: transform 0.3s ease;
+  a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden; /* Đảm bảo rằng hiệu ứng border không làm vỡ bố cục */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    
+    &:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Hiệu ứng border khi hover */
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(to right, #fff, #e0e0e0);
+      bottom: 0;
+      left: 50%;
+      transition: width 0.3s ease, left 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Mở rộng border khi hover */
+    &:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Style cho trạng thái active */
+    &.active {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffd700;
+      position: relative;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;  // Border full width
+        height: 2px;
+        background: linear-gradient(to right, #ffd700, #ffed4a);
+        bottom: 0;
+        left: 0;
+      }
+      
+      /* Thêm glow effect */
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+
+    /* Hiệu ứng hover vẫn giữ nguyên nhưng không áp dụng cho active */
+    &:not(.active):hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+  .navbar__toggle {
+    display: block; /* Show hamburger button on small screens */
+  }
+
+  .navbar__links {
+    display: none; /* Initially hide the links */
+    position: absolute;
+    top: 60px; /* Position the menu below the navbar */
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, #0a0a1a, #111827);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    z-index: 10;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    
+    a {
+      width: 90%;
+      text-align: center;
+      margin: 5px 0;
+      padding: 12px;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+
+  /* Show menu when 'active' class is added */
+  .navbar__links.active {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  /* Hamburger icon */
+  .navbar__toggle-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    position: relative;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar__toggle-icon::before,
+  .navbar__toggle-icon::after {
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    transition: 0.3s;
+  }
+
+  .navbar__toggle-icon::before {
+    top: -8px;
+  }
+
+  .navbar__toggle-icon::after {
+    bottom: -8px;
+  }
+
+  /* Effect when menu is active (Hamburger to X) */
+  .navbar__links.active .navbar__toggle-icon {
+    transform: rotate(45deg); /* Hamburger turns into X */
+  }
+
+  .navbar__links.active .navbar__toggle-icon::before {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  .navbar__links.active .navbar__toggle-icon::after {
+    bottom: 0;
+    transform: rotate(90deg);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar__links {
+    a {
+      &.active {
+        background: rgba(255, 215, 0, 0.08);
+        box-shadow: none;  // Bỏ glow effect trên mobile
+      }
+      
+      &:not(.active):hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+    }
+  }
+}
