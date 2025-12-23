@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BuildModule } from './build/build.module';
+import { TableModule } from './table/table.module';
 
 @Module({
   imports: [
@@ -79,6 +80,7 @@ import { BuildModule } from './build/build.module';
       synchronize: false, // Disabled to prevent schema conflicts
     }),
     BuildModule,
+    TableModule,
   ],
   controllers: [],
   providers: [],
