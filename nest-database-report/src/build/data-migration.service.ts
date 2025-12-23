@@ -8,7 +8,7 @@ import { TTLCustomerLeadBetaEntity } from './entities/TTLCustomerLeadBeta.entity
 import { MUserInfoEntity } from './entities/TTLmembers.entity';
 
 @Injectable()
-export class BuildService {
+export class DataMigrationService {
   constructor(
     @InjectRepository(TTLCustomerEntity, 'mysqlConnection')
     private readonly buildEntityRepository: Repository<TTLCustomerEntity>,

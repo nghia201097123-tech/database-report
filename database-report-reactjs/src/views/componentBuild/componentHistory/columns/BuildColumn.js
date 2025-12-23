@@ -62,7 +62,6 @@ export class BuildColumns {
             [BuildStatusEnum.PROCESS]: "#1890ff", // Màu xanh dương
             [BuildStatusEnum.DONE]: "#52c41a", // Màu xanh lá
             [BuildStatusEnum.REJECT]: "#ff4d4f", // Màu đỏ
-            [BuildStatusEnum.SMALLER]: "#ffcc00", // Màu cho trạng thái "Nhỏ Hơn"
           };
 
           return (
