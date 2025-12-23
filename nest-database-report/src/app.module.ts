@@ -4,6 +4,27 @@ import { BuildModule } from './build/build.module';
 
 @Module({
   imports: [
+    // Default connection for Build Management
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: '172.16.10.145',
+      port: 3306,
+      username: 'root',
+      password: 'OXjKARhMGGhOc7B2UheS',
+      database: 'test',
+      autoLoadEntities: true,
+      synchronize: false,
+      entities: [],
+      multipleStatements: true,
+      dateStrings: true,
+      connectTimeout: 10000,
+      extra: {
+        min: 2,
+        connectionLimit: 10,
+        idleTimeoutMillis: 10000,
+      },
+    }),
+
     TypeOrmModule.forRoot({
       name: 'mysqlConnection', // tên kết nối cho MySQL
       type: 'mysql',
