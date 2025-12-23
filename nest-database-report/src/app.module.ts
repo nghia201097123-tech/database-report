@@ -76,7 +76,7 @@ import { BuildModule } from './build/build.module';
       password: 'PmhxbMK82xSEiyC3hgTl', // mật khẩu PostgreSQL
       database: 'ttl_affiliate_beta', // tên cơ sở dữ liệu PostgreSQL
       autoLoadEntities: true,
-      synchronize: true, // có thể thay đổi theo nhu cầu
+      synchronize: false, // Disabled to prevent schema conflicts
     }),
     BuildModule,
   ],
