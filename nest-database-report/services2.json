@@ -1,0 +1,3707 @@
+{
+  "package": "vn.cofast.grpc.nodejs.freight.service",
+  "services": [
+      {
+          "serviceName": "FreightService",
+          "rpcs": [
+              {
+                  "rpcName": "create",
+                  "request": {
+                      "name": "FreightRequest",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "company_id",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "user_id",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "carrier_id",
+                              "number": 3,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "origin_country_id",
+                              "number": 4,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "origin_port_id",
+                              "number": 5,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "destination_country_id",
+                              "number": 6,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "destination_port_id",
+                              "number": 7,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "frequency",
+                              "number": 8,
+                              "repeated": true
+                          },
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 9,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "terminal_id",
+                              "number": 10,
+                              "repeated": false
+                          },
+                          {
+                              "type": "double",
+                              "name": "capacity",
+                              "number": 11,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "freight_unit_id",
+                              "number": 12,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "container_type",
+                              "number": 13,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "freight_number",
+                              "number": 14,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "service_type",
+                              "number": 15,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "transit_port_ids",
+                              "number": 16,
+                              "repeated": true
+                          },
+                          {
+                              "type": "int32",
+                              "name": "type",
+                              "number": 17,
+                              "repeated": false
+                          },
+                          {
+                              "type": "SailingSchedule",
+                              "name": "sailing_schedule",
+                              "number": 18,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "string",
+                                      "name": "vessel_name",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "voyage",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "etd",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "eta",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "total_transit_time_by_day",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "si_cut_off_date",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "si_cut_off_time",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "cfs_cut_off_date",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "cfs_cut_off_time",
+                                      "number": 9,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "string",
+                              "name": "valid_from_date",
+                              "number": 19,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "valid_to_date",
+                              "number": 20,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "unit_id",
+                              "number": 21,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "remark_co_loader",
+                              "number": 22,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "remark_cargo_owner",
+                              "number": 23,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "is_booking_on_hand",
+                              "number": 24,
+                              "repeated": false
+                          },
+                          {
+                              "type": "OceanFreightDTO",
+                              "name": "ocean_freight",
+                              "number": 25,
+                              "repeated": false,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "master_data_surcharge_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "currency_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_co_loader_price",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_co_loader_price",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_co_loader_price",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_20_container_co_loader_price",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_container_co_loader_price",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_high_container_co_loader_price",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_min_shpt_co_loader_price",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_below_45_kg_co_loader_price",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_45_kg_co_loader_price",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_100_kg_co_loader_price",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_300_kg_co_loader_price",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_500_kg_co_loader_price",
+                                      "number": 15,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_1000_kg_co_loader_price",
+                                      "number": 16,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_2000_kg_co_loader_price",
+                                      "number": 17,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_co_loader",
+                                      "number": 18,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_cargo_owner_price",
+                                      "number": 19,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_cargo_owner_price",
+                                      "number": 20,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_cargo_owner_price",
+                                      "number": 21,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_20_container_cargo_owner_price",
+                                      "number": 22,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_container_cargo_owner_price",
+                                      "number": 23,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_high_container_cargo_owner_price",
+                                      "number": 24,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_min_shpt_cargo_owner_price",
+                                      "number": 25,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_below_45_kg_cargo_owner_price",
+                                      "number": 26,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_45_kg_cargo_owner_price",
+                                      "number": 27,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_100_kg_cargo_owner_price",
+                                      "number": 28,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_300_kg_cargo_owner_price",
+                                      "number": 29,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_500_kg_cargo_owner_price",
+                                      "number": 30,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_1000_kg_cargo_owner_price",
+                                      "number": 31,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_2000_kg_cargo_owner_price",
+                                      "number": 32,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_cargo_owner",
+                                      "number": 33,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "SurchargeRequest",
+                              "name": "ocean_freight_surcharge",
+                              "number": 26,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "surcharge_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "currency_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_price",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_price",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_price",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_20_container_price",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_container_price",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_high_container_price",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_unit_price",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_type",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_co_loader",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_cargo_owner",
+                                      "number": 14,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "LocalChargeRequest",
+                              "name": "origin_local_charge",
+                              "number": 27,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "master_data_local_charge_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "currency_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_price",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_price",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_price",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_unit_price",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "u",
+                                      "name": "ocean_20_container_price",
+                                      "number": 0,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_20_container_price",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_container_price",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_high_container_price",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "lcl_unit_price",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_co_loader",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_cargo_owner",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "valid_from_date",
+                                      "number": 15,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "valid_to_date",
+                                      "number": 16,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "is_bold",
+                                      "number": 17,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "sort",
+                                      "number": 18,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "LocalChargeRequest",
+                              "name": "destination_local_charge",
+                              "number": 28,
+                              "repeated": true
+                          },
+                          {
+                              "type": "FreeTimesResponse",
+                              "name": "ocean_free_times",
+                              "number": 29,
+                              "repeated": false,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_co_loader_dem",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_co_loader_det",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_co_loader_combined",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_co_loader_saturday_excluded",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_co_loader_sunday_excluded",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_co_loader_holiday_excluded",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_co_loader_dem",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_co_loader_det",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_co_loader_combined",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_co_loader_saturday_excluded",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_co_loader_sunday_excluded",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_co_loader_holiday_excluded",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_cargo_owner_dem",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_cargo_owner_det",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_cargo_owner_combined",
+                                      "number": 15,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_cargo_owner_saturday_excluded",
+                                      "number": 16,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_cargo_owner_sunday_excluded",
+                                      "number": 17,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_cargo_owner_holiday_excluded",
+                                      "number": 18,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_cargo_owner_dem",
+                                      "number": 19,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_cargo_owner_det",
+                                      "number": 20,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_cargo_owner_combined",
+                                      "number": 21,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_cargo_owner_saturday_excluded",
+                                      "number": 22,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_cargo_owner_sunday_excluded",
+                                      "number": 23,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_cargo_owner_holiday_excluded",
+                                      "number": 24,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "string",
+                              "name": "stuffing_place_co_loader",
+                              "number": 30,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "stuffing_place_cargo_owner",
+                              "number": 31,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "code",
+                              "number": 32,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "ListFreightIdsBaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": true
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "getDetail",
+                  "request": {
+                      "name": "GetDetailDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "freight_id",
+                              "number": 1,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "update",
+                  "request": {
+                      "name": "UpdateDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "freight_id",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "valid_to_date",
+                              "number": 2,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "uploadExcel",
+                  "request": {
+                      "name": "UploadExcelDTO",
+                      "details": [
+                          {
+                              "type": "FreightRequest",
+                              "name": "data",
+                              "number": 1,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "company_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "user_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "carrier_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_country_id",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_port_id",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_country_id",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_port_id",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "frequency",
+                                      "number": 8,
+                                      "repeated": true
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "status",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "terminal_id",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "capacity",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_unit_id",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "container_type",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "freight_number",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "service_type",
+                                      "number": 15,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "transit_port_ids",
+                                      "number": 16,
+                                      "repeated": true
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "type",
+                                      "number": 17,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "SailingSchedule",
+                                      "name": "sailing_schedule",
+                                      "number": 18,
+                                      "repeated": true,
+                                      "fields": [
+                                          {
+                                              "type": "string",
+                                              "name": "vessel_name",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "voyage",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "etd",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "eta",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "total_transit_time_by_day",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "si_cut_off_date",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "si_cut_off_time",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "cfs_cut_off_date",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "cfs_cut_off_time",
+                                              "number": 9,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "valid_from_date",
+                                      "number": 19,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "valid_to_date",
+                                      "number": 20,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 21,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_co_loader",
+                                      "number": 22,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_cargo_owner",
+                                      "number": 23,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_booking_on_hand",
+                                      "number": 24,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "OceanFreightDTO",
+                                      "name": "ocean_freight",
+                                      "number": 25,
+                                      "repeated": false,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "master_data_surcharge_id",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "currency_id",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "unit_id",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_co_loader_price",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_co_loader_price",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_co_loader_price",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_20_container_co_loader_price",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_container_co_loader_price",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_high_container_co_loader_price",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_min_shpt_co_loader_price",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_below_45_kg_co_loader_price",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_45_kg_co_loader_price",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_100_kg_co_loader_price",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_300_kg_co_loader_price",
+                                              "number": 14,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_500_kg_co_loader_price",
+                                              "number": 15,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_1000_kg_co_loader_price",
+                                              "number": 16,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_2000_kg_co_loader_price",
+                                              "number": 17,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark_co_loader",
+                                              "number": 18,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_cargo_owner_price",
+                                              "number": 19,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_cargo_owner_price",
+                                              "number": 20,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_cargo_owner_price",
+                                              "number": 21,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_20_container_cargo_owner_price",
+                                              "number": 22,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_container_cargo_owner_price",
+                                              "number": 23,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_high_container_cargo_owner_price",
+                                              "number": 24,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_min_shpt_cargo_owner_price",
+                                              "number": 25,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_below_45_kg_cargo_owner_price",
+                                              "number": 26,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_45_kg_cargo_owner_price",
+                                              "number": 27,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_100_kg_cargo_owner_price",
+                                              "number": 28,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_300_kg_cargo_owner_price",
+                                              "number": 29,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_500_kg_cargo_owner_price",
+                                              "number": 30,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_1000_kg_cargo_owner_price",
+                                              "number": 31,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_2000_kg_cargo_owner_price",
+                                              "number": 32,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark_cargo_owner",
+                                              "number": 33,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "SurchargeRequest",
+                                      "name": "ocean_freight_surcharge",
+                                      "number": 26,
+                                      "repeated": true,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "surcharge_id",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "currency_id",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "unit_id",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_price",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_price",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_price",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_20_container_price",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_container_price",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_high_container_price",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_unit_price",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "freight_type",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_co_loader",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_cargo_owner",
+                                              "number": 14,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "LocalChargeRequest",
+                                      "name": "origin_local_charge",
+                                      "number": 27,
+                                      "repeated": true,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "master_data_local_charge_id",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "currency_id",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "unit_id",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_price",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_price",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_price",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_unit_price",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "u",
+                                              "name": "ocean_20_container_price",
+                                              "number": 0,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_20_container_price",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_container_price",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_high_container_price",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "lcl_unit_price",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_co_loader",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_cargo_owner",
+                                              "number": 14,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "valid_from_date",
+                                              "number": 15,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "valid_to_date",
+                                              "number": 16,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "is_bold",
+                                              "number": 17,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "sort",
+                                              "number": 18,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "LocalChargeRequest",
+                                      "name": "destination_local_charge",
+                                      "number": 28,
+                                      "repeated": true
+                                  },
+                                  {
+                                      "type": "FreeTimesResponse",
+                                      "name": "ocean_free_times",
+                                      "number": 29,
+                                      "repeated": false,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_co_loader_dem",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_co_loader_det",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_co_loader_combined",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_co_loader_saturday_excluded",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_co_loader_sunday_excluded",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_co_loader_holiday_excluded",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_co_loader_dem",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_co_loader_det",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_co_loader_combined",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_co_loader_saturday_excluded",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_co_loader_sunday_excluded",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_co_loader_holiday_excluded",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_cargo_owner_dem",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_cargo_owner_det",
+                                              "number": 14,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_cargo_owner_combined",
+                                              "number": 15,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_cargo_owner_saturday_excluded",
+                                              "number": 16,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_cargo_owner_sunday_excluded",
+                                              "number": 17,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_cargo_owner_holiday_excluded",
+                                              "number": 18,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_cargo_owner_dem",
+                                              "number": 19,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_cargo_owner_det",
+                                              "number": 20,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_cargo_owner_combined",
+                                              "number": 21,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_cargo_owner_saturday_excluded",
+                                              "number": 22,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_cargo_owner_sunday_excluded",
+                                              "number": 23,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_cargo_owner_holiday_excluded",
+                                              "number": 24,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "stuffing_place_co_loader",
+                                      "number": 30,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "stuffing_place_cargo_owner",
+                                      "number": 31,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "code",
+                                      "number": 32,
+                                      "repeated": false
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "ListFreightIdsAfterExcelBaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "ListFreightIdsAfterExcelResponse",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_ids",
+                                      "number": 1,
+                                      "repeated": true
+                                  },
+                                  {
+                                      "type": "ListErrorResponse",
+                                      "name": "errors",
+                                      "number": 2,
+                                      "repeated": true,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "code",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "vi_message",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "eng_message",
+                                              "number": 3,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "checkValidation",
+                  "request": {
+                      "name": "UploadExcelDTO",
+                      "details": [
+                          {
+                              "type": "FreightRequest",
+                              "name": "data",
+                              "number": 1,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "company_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "user_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "carrier_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_country_id",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_port_id",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_country_id",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_port_id",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "frequency",
+                                      "number": 8,
+                                      "repeated": true
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "status",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "terminal_id",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "capacity",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_unit_id",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "container_type",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "freight_number",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "service_type",
+                                      "number": 15,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "transit_port_ids",
+                                      "number": 16,
+                                      "repeated": true
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "type",
+                                      "number": 17,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "SailingSchedule",
+                                      "name": "sailing_schedule",
+                                      "number": 18,
+                                      "repeated": true,
+                                      "fields": [
+                                          {
+                                              "type": "string",
+                                              "name": "vessel_name",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "voyage",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "etd",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "eta",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "total_transit_time_by_day",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "si_cut_off_date",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "si_cut_off_time",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "cfs_cut_off_date",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "cfs_cut_off_time",
+                                              "number": 9,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "valid_from_date",
+                                      "number": 19,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "valid_to_date",
+                                      "number": 20,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 21,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_co_loader",
+                                      "number": 22,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_cargo_owner",
+                                      "number": 23,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_booking_on_hand",
+                                      "number": 24,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "OceanFreightDTO",
+                                      "name": "ocean_freight",
+                                      "number": 25,
+                                      "repeated": false,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "master_data_surcharge_id",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "currency_id",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "unit_id",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_co_loader_price",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_co_loader_price",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_co_loader_price",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_20_container_co_loader_price",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_container_co_loader_price",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_high_container_co_loader_price",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_min_shpt_co_loader_price",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_below_45_kg_co_loader_price",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_45_kg_co_loader_price",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_100_kg_co_loader_price",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_300_kg_co_loader_price",
+                                              "number": 14,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_500_kg_co_loader_price",
+                                              "number": 15,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_1000_kg_co_loader_price",
+                                              "number": 16,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_2000_kg_co_loader_price",
+                                              "number": 17,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark_co_loader",
+                                              "number": 18,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_cargo_owner_price",
+                                              "number": 19,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_cargo_owner_price",
+                                              "number": 20,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_cargo_owner_price",
+                                              "number": 21,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_20_container_cargo_owner_price",
+                                              "number": 22,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_container_cargo_owner_price",
+                                              "number": 23,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "is_have_ocean_40_high_container_cargo_owner_price",
+                                              "number": 24,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_min_shpt_cargo_owner_price",
+                                              "number": 25,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_below_45_kg_cargo_owner_price",
+                                              "number": 26,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_45_kg_cargo_owner_price",
+                                              "number": 27,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_100_kg_cargo_owner_price",
+                                              "number": 28,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_300_kg_cargo_owner_price",
+                                              "number": 29,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_500_kg_cargo_owner_price",
+                                              "number": 30,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_1000_kg_cargo_owner_price",
+                                              "number": 31,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_above_2000_kg_cargo_owner_price",
+                                              "number": 32,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark_cargo_owner",
+                                              "number": 33,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "SurchargeRequest",
+                                      "name": "ocean_freight_surcharge",
+                                      "number": 26,
+                                      "repeated": true,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "surcharge_id",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "currency_id",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "unit_id",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_price",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_price",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_price",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_20_container_price",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_container_price",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_high_container_price",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_unit_price",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "freight_type",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_co_loader",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_cargo_owner",
+                                              "number": 14,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "LocalChargeRequest",
+                                      "name": "origin_local_charge",
+                                      "number": 27,
+                                      "repeated": true,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "master_data_local_charge_id",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "currency_id",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "unit_id",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_20_container_price",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_container_price",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "ocean_40_high_container_price",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "air_weight_unit_price",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "u",
+                                              "name": "ocean_20_container_price",
+                                              "number": 0,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_20_container_price",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_container_price",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_have_40_high_container_price",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "double",
+                                              "name": "lcl_unit_price",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "remark",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_co_loader",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "is_for_cargo_owner",
+                                              "number": 14,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "valid_from_date",
+                                              "number": 15,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "valid_to_date",
+                                              "number": 16,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "string",
+                                              "name": "is_bold",
+                                              "number": 17,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "sort",
+                                              "number": 18,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "LocalChargeRequest",
+                                      "name": "destination_local_charge",
+                                      "number": 28,
+                                      "repeated": true
+                                  },
+                                  {
+                                      "type": "FreeTimesResponse",
+                                      "name": "ocean_free_times",
+                                      "number": 29,
+                                      "repeated": false,
+                                      "fields": [
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_co_loader_dem",
+                                              "number": 1,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_co_loader_det",
+                                              "number": 2,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_co_loader_combined",
+                                              "number": 3,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_co_loader_saturday_excluded",
+                                              "number": 4,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_co_loader_sunday_excluded",
+                                              "number": 5,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_co_loader_holiday_excluded",
+                                              "number": 6,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_co_loader_dem",
+                                              "number": 7,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_co_loader_det",
+                                              "number": 8,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_co_loader_combined",
+                                              "number": 9,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_co_loader_saturday_excluded",
+                                              "number": 10,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_co_loader_sunday_excluded",
+                                              "number": 11,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_co_loader_holiday_excluded",
+                                              "number": 12,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_cargo_owner_dem",
+                                              "number": 13,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_cargo_owner_det",
+                                              "number": 14,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "origin_cargo_owner_combined",
+                                              "number": 15,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_cargo_owner_saturday_excluded",
+                                              "number": 16,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_cargo_owner_sunday_excluded",
+                                              "number": 17,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "origin_cargo_owner_holiday_excluded",
+                                              "number": 18,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_cargo_owner_dem",
+                                              "number": 19,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_cargo_owner_det",
+                                              "number": 20,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "int32",
+                                              "name": "destination_cargo_owner_combined",
+                                              "number": 21,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_cargo_owner_saturday_excluded",
+                                              "number": 22,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_cargo_owner_sunday_excluded",
+                                              "number": 23,
+                                              "repeated": false
+                                          },
+                                          {
+                                              "type": "bool",
+                                              "name": "destination_cargo_owner_holiday_excluded",
+                                              "number": 24,
+                                              "repeated": false
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "stuffing_place_co_loader",
+                                      "number": 30,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "stuffing_place_cargo_owner",
+                                      "number": 31,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "code",
+                                      "number": 32,
+                                      "repeated": false
+                                  }
+                              ]
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "ListErrorBaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "ListErrorResponse",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "code",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "vi_message",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "eng_message",
+                                      "number": 3,
+                                      "repeated": false
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "deleteDraft",
+                  "request": {
+                      "name": "GetDetailDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "freight_id",
+                              "number": 1,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "updateStatus",
+                  "request": {
+                      "name": "GetDetailDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "freight_id",
+                              "number": 1,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "updateDraft",
+                  "request": {
+                      "name": "UpdateFreightDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "freight_id",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "company_id",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "user_id",
+                              "number": 3,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "carrier_id",
+                              "number": 4,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "origin_country_id",
+                              "number": 5,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "origin_port_id",
+                              "number": 6,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "destination_country_id",
+                              "number": 7,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "destination_port_id",
+                              "number": 8,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "frequency",
+                              "number": 9,
+                              "repeated": true
+                          },
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 10,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "terminal_id",
+                              "number": 11,
+                              "repeated": false
+                          },
+                          {
+                              "type": "double",
+                              "name": "capacity",
+                              "number": 12,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "freight_unit_id",
+                              "number": 13,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "container_type",
+                              "number": 14,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "service_type",
+                              "number": 15,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "transit_port_ids",
+                              "number": 16,
+                              "repeated": true
+                          },
+                          {
+                              "type": "int32",
+                              "name": "type",
+                              "number": 17,
+                              "repeated": false
+                          },
+                          {
+                              "type": "SailingSchedule",
+                              "name": "sailing_schedule",
+                              "number": 18,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "string",
+                                      "name": "vessel_name",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "voyage",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "etd",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "eta",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "total_transit_time_by_day",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "si_cut_off_date",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "si_cut_off_time",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "cfs_cut_off_date",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "cfs_cut_off_time",
+                                      "number": 9,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "string",
+                              "name": "valid_from_date",
+                              "number": 19,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "valid_to_date",
+                              "number": 20,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "unit_id",
+                              "number": 21,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "remark_co_loader",
+                              "number": 22,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "remark_cargo_owner",
+                              "number": 23,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "is_booking_on_hand",
+                              "number": 24,
+                              "repeated": false
+                          },
+                          {
+                              "type": "OceanFreightUpdateRequest",
+                              "name": "ocean_freight",
+                              "number": 25,
+                              "repeated": false,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "pricing_config_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "master_data_surcharge_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "currency_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_co_loader_price",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_co_loader_price",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_co_loader_price",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_20_container_co_loader_price",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_container_co_loader_price",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_high_container_co_loader_price",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_min_shpt_co_loader_price",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_below_45_kg_co_loader_price",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_45_kg_co_loader_price",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_100_kg_co_loader_price",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_300_kg_co_loader_price",
+                                      "number": 15,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_500_kg_co_loader_price",
+                                      "number": 16,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_1000_kg_co_loader_price",
+                                      "number": 17,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_2000_kg_co_loader_price",
+                                      "number": 18,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_co_loader",
+                                      "number": 19,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_cargo_owner_price",
+                                      "number": 20,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_cargo_owner_price",
+                                      "number": 21,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_cargo_owner_price",
+                                      "number": 22,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_20_container_cargo_owner_price",
+                                      "number": 23,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_container_cargo_owner_price",
+                                      "number": 24,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "is_have_ocean_40_high_container_cargo_owner_price",
+                                      "number": 25,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_min_shpt_cargo_owner_price",
+                                      "number": 26,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_below_45_kg_cargo_owner_price",
+                                      "number": 27,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_45_kg_cargo_owner_price",
+                                      "number": 28,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_100_kg_cargo_owner_price",
+                                      "number": 29,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_300_kg_cargo_owner_price",
+                                      "number": 30,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_500_kg_cargo_owner_price",
+                                      "number": 31,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_1000_kg_cargo_owner_price",
+                                      "number": 32,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_above_2000_kg_cargo_owner_price",
+                                      "number": 33,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark_cargo_owner",
+                                      "number": 34,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "SurchargeUpdateRequest",
+                              "name": "ocean_freight_surcharge",
+                              "number": 26,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_surcharge_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "surcharge_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "currency_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_price",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_price",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_price",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_20_container_price",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_container_price",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_high_container_price",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_unit_price",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_type",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_co_loader",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_cargo_owner",
+                                      "number": 15,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "LocalChargeUpdateRequest",
+                              "name": "origin_local_charge",
+                              "number": 27,
+                              "repeated": true,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_local_charge_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "master_data_local_charge_id",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "currency_id",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "unit_id",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_20_container_price",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_container_price",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "ocean_40_high_container_price",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "air_weight_unit_price",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_20_container_price",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_container_price",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_have_40_high_container_price",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "double",
+                                      "name": "lcl_unit_price",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "string",
+                                      "name": "remark",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_co_loader",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "is_for_cargo_owner",
+                                      "number": 15,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "LocalChargeUpdateRequest",
+                              "name": "destination_local_charge",
+                              "number": 28,
+                              "repeated": true
+                          },
+                          {
+                              "type": "FreeTimesUpdateRequest",
+                              "name": "ocean_free_times",
+                              "number": 29,
+                              "repeated": false,
+                              "fields": [
+                                  {
+                                      "type": "int32",
+                                      "name": "freight_free_time_id",
+                                      "number": 1,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_co_loader_dem",
+                                      "number": 2,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_co_loader_det",
+                                      "number": 3,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_co_loader_combined",
+                                      "number": 4,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_co_loader_saturday_excluded",
+                                      "number": 5,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_co_loader_sunday_excluded",
+                                      "number": 6,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_co_loader_holiday_excluded",
+                                      "number": 7,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_co_loader_dem",
+                                      "number": 8,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_co_loader_det",
+                                      "number": 9,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_co_loader_combined",
+                                      "number": 10,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_co_loader_saturday_excluded",
+                                      "number": 11,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_co_loader_sunday_excluded",
+                                      "number": 12,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_co_loader_holiday_excluded",
+                                      "number": 13,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_cargo_owner_dem",
+                                      "number": 14,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_cargo_owner_det",
+                                      "number": 15,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "origin_cargo_owner_combined",
+                                      "number": 16,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_cargo_owner_saturday_excluded",
+                                      "number": 17,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_cargo_owner_sunday_excluded",
+                                      "number": 18,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "origin_cargo_owner_holiday_excluded",
+                                      "number": 19,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_cargo_owner_dem",
+                                      "number": 20,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_cargo_owner_det",
+                                      "number": 21,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "int32",
+                                      "name": "destination_cargo_owner_combined",
+                                      "number": 22,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_cargo_owner_saturday_excluded",
+                                      "number": 23,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_cargo_owner_sunday_excluded",
+                                      "number": 24,
+                                      "repeated": false
+                                  },
+                                  {
+                                      "type": "bool",
+                                      "name": "destination_cargo_owner_holiday_excluded",
+                                      "number": 25,
+                                      "repeated": false
+                                  }
+                              ]
+                          },
+                          {
+                              "type": "string",
+                              "name": "stuffing_place_co_loader",
+                              "number": 30,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "stuffing_place_cargo_owner",
+                              "number": 31,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "changeActive",
+                  "request": {
+                      "name": "ChangeActiveDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "freight_id",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "valid_to_date",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "valid_from_date",
+                              "number": 3,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "etd",
+                              "number": 4,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "eta",
+                              "number": 5,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "cfs_cut_off_date",
+                              "number": 6,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "cfs_cut_off_time",
+                              "number": 7,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "si_cut_off_date",
+                              "number": 8,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "si_cut_off_time",
+                              "number": 9,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "multiDeactive",
+                  "request": {
+                      "name": "MultiDeactiveDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "user_ids",
+                              "number": 1,
+                              "repeated": true
+                          },
+                          {
+                              "type": "int32",
+                              "name": "company_id",
+                              "number": 2,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              },
+              {
+                  "rpcName": "multiActiveFreightByIds",
+                  "request": {
+                      "name": "MultiActiveFreightByIdsDTO",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "freight_ids",
+                              "number": 1,
+                              "repeated": true
+                          },
+                          {
+                              "type": "int32",
+                              "name": "freight_type",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "int32",
+                              "name": "is_deactivate_all",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  },
+                  "response": {
+                      "name": "BaseResponse",
+                      "details": [
+                          {
+                              "type": "int32",
+                              "name": "status",
+                              "number": 1,
+                              "repeated": false
+                          },
+                          {
+                              "type": "string",
+                              "name": "message",
+                              "number": 2,
+                              "repeated": false
+                          },
+                          {
+                              "type": "Empty",
+                              "name": "data",
+                              "number": 3,
+                              "repeated": false
+                          }
+                      ]
+                  }
+              }
+          ]
+      }
+  ]
+}

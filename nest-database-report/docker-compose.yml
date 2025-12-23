@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+  app:
+    build:
+      context: . # Đảm bảo Dockerfile ở thư mục gốc của dự án
+      dockerfile: Dockerfile
+    image: namtechdocker/nestjs-database-report:1.1.0
+    volumes:
+      - ./configs/logs:/app/configs/logs # Mount thư mục logs từ máy chủ vào container
+    ports:
+      - '1997:1997' # Chuyển tiếp cổng từ container ra ngoài
+    restart: always # Nếu container bị dừng, nó sẽ tự động khởi động lại
+    depends_on:
+      - db # Đảm bảo app khởi động sau db
+
+  db:
+    image: mariadb:latest # Sử dụng image MariaDB
+    restart: always # Tự động khởi động lại khi container bị dừng
+    environment:
+      MARIADB_ROOT_PASSWORD: example # Mật khẩu root của MariaDB
+    ports:
+      - '3306:3306' # Expose port 3306 của MariaDB để các ứng dụng có thể kết nối
+
+  adminer:
+    image: adminer:latest # Dịch vụ Adminer để quản lý MariaDB qua giao diện web
+    restart: always
+    ports:
+      - '8080:8080' # Adminer sẽ chạy trên cổng 8080
