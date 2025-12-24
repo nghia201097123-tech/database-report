@@ -5,7 +5,10 @@ class TableNameDetailButton extends Component {
   render() {
     const {
       disabled,
+      table_name,
       handleExportTableName,
+      handleExportFileTableName,
+      handleExportFileTableNameNotLastUpdate,
       handleCloneTableNameWithConfirmation,
       handleSelectChange,
       search,
@@ -13,13 +16,12 @@ class TableNameDetailButton extends Component {
 
     return (
       <>
-        {console.log(disabled)}
         <div className="template-header">
-          {!disabled && (
+          {table_name.is_latest_version === 1 && (
             <Tooltip
               title={
                 disabled
-                  ? "Tính năng đã bị khoá do Store/Func đã chốt versions!"
+                  ? "Tính năng đã bị khoá do Table đã chốt versions!"
                   : ""
               }
             >
@@ -45,11 +47,33 @@ class TableNameDetailButton extends Component {
                 KIỂM TRA
               </Button>
 
+              <Button
+                type="primary"
+                style={{
+                  backgroundColor: "#2196F3",
+                  borderColor: "#2196F3",
+                  marginRight: "10px",
+                  marginBottom: "1px",
+                  color: "#fff",
+                  padding: "10px 16px",
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  borderRadius: "6px",
+                  transition: "all 0.3s ease",
+                  opacity: disabled ? 0.5 : 1,
+                  cursor: disabled ? "not-allowed" : "pointer",
+                }}
+                onClick={handleExportFileTableName}
+                disabled={disabled}
+              >
+                XUẤT FILE
+              </Button>
+
               <Tooltip
                 title={
-                  "Khi bạn chốt version này thì ngay lập tức sẽ khoá các store/func bên dưới và tạo ra version mới và chỉ ghi nhận các thay đổi tính từ thời điểm bạn xác nhận!"
+                  "Khi bạn chốt version này thì ngay lập tức sẽ khoá các tables bên dưới và tạo ra version mới và chỉ ghi nhận các thay đổi tính từ thời điểm bạn xác nhận!"
                 }
-                color="red" // Changes the background color of the tooltip to red
+                color="red"
               >
                 <Button
                   type="primary"
@@ -74,6 +98,31 @@ class TableNameDetailButton extends Component {
               </Tooltip>
             </Tooltip>
           )}
+
+          {table_name.is_latest_version === 0 && (
+            <Button
+              type="primary"
+              style={{
+                backgroundColor: "#2196F3",
+                borderColor: "#2196F3",
+                marginRight: "10px",
+                marginBottom: "1px",
+                color: "#fff",
+                padding: "10px 16px",
+                fontSize: "14px",
+                fontWeight: "bold",
+                borderRadius: "6px",
+                transition: "all 0.3s ease",
+                opacity: disabled ? 0.5 : 1,
+                cursor: disabled ? "not-allowed" : "pointer",
+              }}
+              onClick={handleExportFileTableNameNotLastUpdate}
+              disabled={disabled}
+            >
+              XUẤT FILE
+            </Button>
+          )}
+
           <Col xs={24} sm={24} md={12} lg={8} xl={8}>
             <Input
               placeholder="Nhập từ khóa tìm kiếm"

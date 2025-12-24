@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 import { TableNameDetailService } from "../../../services/tableNameDetailService";
 import { TableNameService } from "../../../services/tableNameService";
+import EnvStatusDetailEnum from "../../../utils/Enum/EnvStatusDetailEnum";
 import { DateformatVNTimestamp } from "../../../utils/Moment/moment";
 import "./../../../assets/Scss/templates/TableRow.scss";
 import { TableNameDetailColumns } from "./columns/TableNameDetailColumns";
@@ -115,6 +116,126 @@ class TableNameDetail extends React.Component {
     } catch (error) {
     } finally {
       await this.setState({ disabled: false, loading: false });
+    }
+  };
+
+  handleExportFileTableName = async () => {
+    try {
+      await this.setState({
+        disabled: true,
+        loading: true,
+      });
+      const { table_name_histories, selectedRowKeys } = this.state;
+
+      if (selectedRowKeys.length === 0) {
+        toast.error("Bạn chưa chọn dữ liệu để export");
+        return;
+      }
+
+      const tableNames = await table_name_histories
+        .filter(
+          (history) =>
+            selectedRowKeys.includes(+history.id) &&
+            history.env !== EnvStatusDetailEnum.DELETE
+        )
+        .map((history) => history.table_name);
+
+      if (tableNames.length === 0) {
+        toast.error("Table đã xoá bạn không thể export!");
+        return;
+      }
+
+      let res = await TableNameDetailService.exportFileTableNameDetails(
+        this.state.table_name.db_name_id,
+        parseInt(this.props.id),
+        tableNames
+      );
+
+      const fileUrl = `http://172.16.10.82:1997${res.data.data}`;
+      const fileName = fileUrl.split("/").pop();
+
+      const response = await fetch(fileUrl);
+      if (!response.ok) {
+        throw new Error("Không thể tải file từ server");
+      }
+      const blob = await response.blob();
+
+      const blobUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(blobUrl);
+
+      toast.success("File đang được tải xuống!");
+    } catch (error) {
+      console.error("Lỗi:", error);
+      toast.error(error.message || "Có lỗi xảy ra khi tải file!");
+    } finally {
+      await this.setState({ disabled: false, loading: false });
+    }
+  };
+
+  handleExportFileTableNameNotLastUpdate = async () => {
+    try {
+      this.setState({
+        disabled: true,
+        loading: true,
+      });
+      const { table_name_histories, selectedRowKeys } = this.state;
+
+      if (selectedRowKeys.length === 0) {
+        toast.error("Bạn chưa chọn dữ liệu để export");
+        return;
+      }
+
+      const tableNames = table_name_histories
+        .filter(
+          (history) =>
+            selectedRowKeys.includes(+history.id) &&
+            history.env !== EnvStatusDetailEnum.DELETE
+        )
+        .map((history) => history.table_name);
+
+      if (tableNames.length === 0) {
+        toast.error("Table đã xoá bạn không thể export!");
+        return;
+      }
+
+      let res = await TableNameDetailService.exportFileTableNameDetails(
+        this.state.table_name.db_name_id,
+        parseInt(this.props.id),
+        tableNames
+      );
+
+      const fileUrl = `http://172.16.10.82:1997${res.data.data}`;
+      const fileName = fileUrl.split("/").pop();
+
+      const response = await fetch(fileUrl);
+      if (!response.ok) {
+        throw new Error("Không thể tải file từ server");
+      }
+      const blob = await response.blob();
+
+      const blobUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(blobUrl);
+
+      toast.success("File đang được tải xuống!");
+    } catch (error) {
+      console.error("Lỗi:", error);
+      toast.error(error.message || "Có lỗi xảy ra khi tải file!");
+    } finally {
+      this.setState({ disabled: true, loading: false });
     }
   };
 
@@ -243,7 +364,12 @@ class TableNameDetail extends React.Component {
             {/* Load button */}
             <TableNameDetailButton
               disabled={disabled}
+              table_name={this.state.table_name}
               handleExportTableName={this.handleExportTableName}
+              handleExportFileTableName={this.handleExportFileTableName}
+              handleExportFileTableNameNotLastUpdate={
+                this.handleExportFileTableNameNotLastUpdate
+              }
               handleCloneTableNameWithConfirmation={
                 this.handleCloneTableNameWithConfirmation
               }
