@@ -1,16 +1,38 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BuildModule } from './build/build.module';
+import { TableModule } from './table/table.module';
 
 @Module({
   imports: [
+    // Default connection for Build Management
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: '172.16.10.145',
+      port: 3306,
+      username: 'root',
+      password: 'Gt2zF7xgppdtZKTvyabo',
+      database: 'test',
+      autoLoadEntities: true,
+      synchronize: false,
+      entities: [],
+      multipleStatements: true,
+      dateStrings: true,
+      connectTimeout: 10000,
+      extra: {
+        min: 2,
+        connectionLimit: 10,
+        idleTimeoutMillis: 10000,
+      },
+    }),
+
     TypeOrmModule.forRoot({
       name: 'mysqlConnection', // tên kết nối cho MySQL
       type: 'mysql',
       host: '172.16.10.145',
       port: 3306,
       username: 'root',
-      password: 'OXjKARhMGGhOc7B2UheS',
+      password: 'Gt2zF7xgppdtZKTvyabo',
       database: 'test',
       autoLoadEntities: true,
       synchronize: false,
@@ -31,7 +53,7 @@ import { BuildModule } from './build/build.module';
       host: '172.16.10.145',
       port: 3306,
       username: 'root',
-      password: 'OXjKARhMGGhOc7B2UheS',
+      password: 'Gt2zF7xgppdtZKTvyabo',
       database: 'ttl_customer_beta',
       autoLoadEntities: true,
       synchronize: false,
@@ -55,9 +77,10 @@ import { BuildModule } from './build/build.module';
       password: 'PmhxbMK82xSEiyC3hgTl', // mật khẩu PostgreSQL
       database: 'ttl_affiliate_beta', // tên cơ sở dữ liệu PostgreSQL
       autoLoadEntities: true,
-      synchronize: true, // có thể thay đổi theo nhu cầu
+      synchronize: false, // Disabled to prevent schema conflicts
     }),
     BuildModule,
+    TableModule,
   ],
   controllers: [],
   providers: [],
