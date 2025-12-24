@@ -1,5 +1,5 @@
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Modal, Table } from "antd";
+import { Modal, Table, Spin, Button as AntButton } from "antd";
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,6 +9,9 @@ import { TableNameService } from "../../../services/tableNameService";
 import EnvStatusDetailEnum from "../../../utils/Enum/EnvStatusDetailEnum";
 import { DateformatVNTimestamp } from "../../../utils/Moment/moment";
 import "./../../../assets/Scss/templates/TableRow.scss";
+import "./../../../assets/Scss/components/InfoBox.scss";
+import "./../../../assets/Scss/components/DataTable.scss";
+import "./../../../assets/Scss/components/EmptyState.scss";
 import { TableNameDetailColumns } from "./columns/TableNameDetailColumns";
 import TableNameDetailButton from "./components/TableNameDetailButton";
 import TableNameViewDetail from "./components/TableNameViewDetail";
@@ -53,14 +56,43 @@ class TableNameDetail extends React.Component {
 
   handleCloneTableNameWithConfirmation = () => {
     Modal.confirm({
-      title: "Bạn có chắc chắn muốn chốt Table này không?",
-      icon: <ExclamationCircleOutlined />,
-      content:
-        "Khi bạn chốt version này thì ngay lập tức sẽ khoá các table bên dưới và tạo ra version mới và chỉ ghi nhận các thay đổi tính từ thời điểm bạn xác nhận!",
-      okText: "Chốt",
-      cancelText: "Hủy",
+      title: (
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <span style={{ fontSize: "24px" }}>🔒</span>
+          <span>Chốt Version Table</span>
+        </div>
+      ),
+      icon: null,
+      content: (
+        <div>
+          <p style={{ marginBottom: "12px", fontWeight: 500 }}>
+            Khi bạn chốt version này:
+          </p>
+          <ul style={{ paddingLeft: "20px", marginTop: "12px", lineHeight: "1.8" }}>
+            <li>✅ Các table bên dưới sẽ được khoá ngay lập tức</li>
+            <li>✅ Hệ thống tạo version mới tự động</li>
+            <li>✅ Chỉ ghi nhận thay đổi từ thời điểm xác nhận</li>
+            <li style={{ color: "#f44336" }}>❌ Không thể hoàn tác sau khi chốt</li>
+          </ul>
+          <div
+            style={{
+              marginTop: "16px",
+              padding: "12px",
+              background: "#fff3cd",
+              borderRadius: "4px",
+              border: "1px solid #ffc107",
+            }}
+          >
+            <strong>⚠️ Cảnh báo:</strong> Hành động này không thể hoàn tác!
+          </div>
+        </div>
+      ),
+      okText: "Xác nhận chốt",
+      okType: "danger",
+      cancelText: "Hủy bỏ",
+      width: 520,
       onOk: () => {
-        this.handleCloneTableName(parseInt(this.props.id)); // Perform the actual action if confirmed
+        this.handleCloneTableName(parseInt(this.props.id));
       },
     });
   };
@@ -316,47 +348,38 @@ class TableNameDetail extends React.Component {
       <>
         <div className="template-container">
           <div className="kafka-content">
-            {/* Thông tin Store/Func */}
-            <div className="store-func-info" style={{ marginBottom: "20px" }}>
-              <div
-                style={{
-                  background: "#f5f5f5",
-                  padding: "15px",
-                  borderRadius: "8px",
-                  border: "1px solid #d9d9d9",
-                }}
-              >
-                <h2 style={{ marginBottom: "10px" }}>Thông tin Table</h2>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "10px",
-                  }}
-                >
-                  <div>
-                    <strong>Dự án: </strong>
-                    {this.state.table_name.db_root_name}
-                  </div>
+            {/* Thông tin Table */}
+            <div className="info-box">
+              <h3 className="info-box__title">Thông tin Table</h3>
+              <div className="info-box__grid">
+                <div className="info-box__item">
+                  <strong>Dự án</strong>
+                  <span>{this.state.table_name.db_root_name || "N/A"}</span>
+                </div>
 
-                  <div>
-                    <strong>Ngày xuất bản: </strong>
-                    {DateformatVNTimestamp(
-                      new Date(this.state.table_name.created_at)
-                    )}
-                  </div>
+                <div className="info-box__item">
+                  <strong>Ngày xuất bản</strong>
+                  <span>
+                    {this.state.table_name.created_at
+                      ? DateformatVNTimestamp(new Date(this.state.table_name.created_at))
+                      : "N/A"}
+                  </span>
+                </div>
 
-                  <div>
-                    <strong>Tên database: </strong>
-                    {this.state.table_name.db_name}
-                  </div>
+                <div className="info-box__item">
+                  <strong>Tên database</strong>
+                  <span>{this.state.table_name.db_name || "N/A"}</span>
+                </div>
 
-                  <div>
-                    <strong>Phiên bản: </strong>
-                    {this.state.table_name.is_latest_version === 1
-                      ? "Mới nhất"
-                      : "Cũ"}
-                  </div>
+                <div className="info-box__item">
+                  <strong>Phiên bản</strong>
+                  <span
+                    className={`info-box__badge info-box__badge--${
+                      this.state.table_name.is_latest_version === 1 ? "latest" : "old"
+                    }`}
+                  >
+                    {this.state.table_name.is_latest_version === 1 ? "Mới nhất" : "Cũ"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -377,26 +400,53 @@ class TableNameDetail extends React.Component {
               search={search}
             />
 
-            <Table
-              rowSelection={rowSelection}
-              rowKey={(record) => record.id}
-              columns={columns}
-              dataSource={filteredTableNameHistories}
-              className="custom-table"
-              pagination={{
-                pageSize: 20,
-                pageSizeOptions: ["10", "20", "50", "100"],
-                showSizeChanger: true,
-                position: ["bottomRight"],
-                showTotal: (total) => `Tổng số: ${total} phần tử`,
-                size: "small",
-              }}
-              scroll={{ x: "max-content", y: "calc(100vh - 300px)" }}
-              bordered
-              rowClassName="table-row"
-              loading={loading}
-              size="small"
-            />
+            <div className="data-table-wrapper">
+              <Table
+                rowSelection={rowSelection}
+                rowKey={(record) => record.id}
+                columns={columns}
+                dataSource={filteredTableNameHistories}
+                locale={{
+                  emptyText: (
+                    <div className="empty-state">
+                      <div className="empty-state__icon">📋</div>
+                      <h3 className="empty-state__title">Không có dữ liệu</h3>
+                      <p className="empty-state__description">
+                        Chưa có thay đổi nào được ghi nhận cho table này
+                      </p>
+                      <div className="empty-state__action">
+                        <AntButton
+                          type="primary"
+                          size="large"
+                          onClick={this.handleExportTableName}
+                          disabled={disabled}
+                          style={{
+                            background: "linear-gradient(135deg, #4CAF50 0%, #388E3C 100%)",
+                            border: "none",
+                          }}
+                        >
+                          <span style={{ marginRight: "8px" }}>🔍</span>
+                          Kiểm tra ngay
+                        </AntButton>
+                      </div>
+                    </div>
+                  ),
+                }}
+                pagination={{
+                  pageSize: 20,
+                  pageSizeOptions: ["10", "20", "50", "100"],
+                  showSizeChanger: true,
+                  position: ["bottomRight"],
+                  showTotal: (total) => `Tổng số: ${total} phần tử`,
+                  size: "small",
+                }}
+                scroll={{ x: "max-content", y: "calc(100vh - 400px)" }}
+                bordered
+                rowClassName="table-row"
+                loading={loading}
+                size="small"
+              />
+            </div>
 
             {/* Load view details */}
             <TableNameViewDetail

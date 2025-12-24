@@ -1,0 +1,157 @@
+@import '../variables';
+
+// ============================================
+// Action Buttons Component
+// ============================================
+
+.action-buttons {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-sm;
+  }
+
+  &__group {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  &__search {
+    flex: 1;
+    min-width: 200px;
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+}
+
+// Button Base Styles
+.btn-action {
+  padding: $button-padding;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  border-radius: $radius-md;
+  border: none;
+  color: $color-white;
+  cursor: pointer;
+  transition: $transition-slow;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  min-width: 120px;
+  white-space: nowrap;
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  // Hover effect
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+
+  // Active state
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: $shadow-md;
+  }
+
+  // Disabled state
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  // Icon in button
+  .btn-icon {
+    font-size: $font-size-lg;
+    line-height: 1;
+  }
+
+  // Button Variants
+  &--check {
+    background: linear-gradient(135deg, $color-success 0%, darken($color-success, 10%) 100%);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, darken($color-success, 5%) 0%, darken($color-success, 15%) 100%);
+      box-shadow: 0 6px 12px rgba($color-success, 0.4);
+    }
+  }
+
+  &--export {
+    background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, darken($color-primary, 5%) 0%, darken($color-primary, 15%) 100%);
+      box-shadow: 0 6px 12px rgba($color-primary, 0.4);
+    }
+  }
+
+  &--lock {
+    background: linear-gradient(135deg, $color-danger 0%, darken($color-danger, 10%) 100%);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, darken($color-danger, 5%) 0%, darken($color-danger, 15%) 100%);
+      box-shadow: 0 6px 12px rgba($color-danger, 0.4);
+    }
+  }
+
+  &--warning {
+    background: linear-gradient(135deg, $color-warning 0%, darken($color-warning, 10%) 100%);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, darken($color-warning, 5%) 0%, darken($color-warning, 15%) 100%);
+      box-shadow: 0 6px 12px rgba($color-warning, 0.4);
+    }
+  }
+
+  &--info {
+    background: linear-gradient(135deg, $color-info 0%, darken($color-info, 10%) 100%);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, darken($color-info, 5%) 0%, darken($color-info, 15%) 100%);
+      box-shadow: 0 6px 12px rgba($color-info, 0.4);
+    }
+  }
+
+  // Size variants
+  &--small {
+    padding: $button-padding-sm;
+    font-size: $font-size-sm;
+    min-width: 90px;
+  }
+
+  &--large {
+    padding: $button-padding-lg;
+    font-size: $font-size-lg;
+    min-width: 150px;
+  }
+}
+
+// Tooltip styling for buttons
+.ant-tooltip {
+  .ant-tooltip-inner {
+    font-size: $font-size-sm;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-sm;
+  }
+}

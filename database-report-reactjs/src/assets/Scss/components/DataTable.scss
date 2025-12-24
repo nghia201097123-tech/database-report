@@ -1,0 +1,219 @@
+@import '../variables';
+
+// ============================================
+// Data Table Component
+// ============================================
+
+.data-table-wrapper {
+  background: $color-white;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-sm;
+    border-radius: $radius-sm;
+  }
+
+  // Ant Design Table Customization
+  .ant-table {
+    font-size: $font-size-sm;
+
+    // Table Header
+    .ant-table-thead > tr > th {
+      background: linear-gradient(to bottom, $color-gray-50, $color-gray-100);
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-sm;
+      color: $color-gray-800;
+      border-bottom: 2px solid $color-gray-300;
+      padding: 12px 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        background: linear-gradient(to bottom, $color-gray-100, $color-gray-200);
+      }
+
+      // Sortable columns
+      &.ant-table-column-has-sorters:hover {
+        background: linear-gradient(to bottom, $color-gray-100, $color-gray-200);
+      }
+    }
+
+    // Table Body
+    .ant-table-tbody {
+      > tr {
+        transition: $transition-base;
+
+        &:hover {
+          background-color: $bg-hover !important;
+          box-shadow: $shadow-sm;
+
+          > td {
+            background-color: transparent;
+          }
+        }
+
+        // Status row variants
+        &.row-add {
+          background-color: $status-add;
+
+          &:hover {
+            background-color: darken($status-add, 3%) !important;
+          }
+        }
+
+        &.row-modify {
+          background-color: $status-modify;
+
+          &:hover {
+            background-color: darken($status-modify, 3%) !important;
+          }
+        }
+
+        &.row-delete {
+          background-color: $status-delete;
+
+          &:hover {
+            background-color: darken($status-delete, 3%) !important;
+          }
+        }
+
+        &.row-default {
+          background-color: $color-white;
+        }
+
+        &.table-row-faded {
+          opacity: 0.5;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        > td {
+          padding: 8px;
+          border-bottom: 1px solid $color-gray-200;
+          vertical-align: middle;
+
+          @media (max-width: $breakpoint-mobile) {
+            padding: 6px 4px;
+            font-size: $font-size-xs;
+          }
+        }
+      }
+
+      // Striped rows (optional)
+      &.ant-table-tbody-striped {
+        > tr:nth-child(even) {
+          background-color: $color-gray-50;
+        }
+      }
+    }
+
+    // Empty state
+    .ant-table-placeholder {
+      padding: $spacing-xl;
+      border: none;
+    }
+
+    // Selection column
+    .ant-table-selection-column {
+      width: 40px;
+      min-width: 40px;
+    }
+
+    // Compact mode
+    &.ant-table-small {
+      .ant-table-thead > tr > th {
+        padding: 8px 6px;
+      }
+
+      .ant-table-tbody > tr > td {
+        padding: 6px 6px;
+      }
+    }
+  }
+
+  // Pagination
+  .ant-pagination {
+    margin-top: $spacing-md;
+    text-align: right;
+
+    @media (max-width: $breakpoint-tablet) {
+      text-align: center;
+    }
+
+    .ant-pagination-item {
+      border-radius: $radius-sm;
+      transition: $transition-fast;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-sm;
+      }
+
+      &-active {
+        background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
+        border-color: $color-primary;
+
+        a {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  // Table title (optional)
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-gray-800;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid $color-gray-200;
+  }
+
+  // Table footer (optional)
+  &__footer {
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid $color-gray-200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+}
+
+// Loading overlay
+.table-loading-overlay {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    z-index: 10;
+  }
+
+  .ant-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+  }
+}
