@@ -58,8 +58,8 @@ export class BuildController {
       const build = await this.buildManagementService.create(createBuildDto);
       responseData.setData(build);
     } catch (error) {
-      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
+      responseData.setStatus(HttpStatus.BAD_REQUEST);
+      responseData.setMessage(HttpStatus.BAD_REQUEST, error.message);
     }
     return responseData;
   }
@@ -75,8 +75,8 @@ export class BuildController {
       const build = await this.buildManagementService.update(updateBuildDto);
       responseData.setData(build);
     } catch (error) {
-      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
+      responseData.setStatus(HttpStatus.BAD_REQUEST);
+      responseData.setMessage(HttpStatus.BAD_REQUEST, error.message);
     }
     return responseData;
   }
@@ -97,8 +97,8 @@ export class BuildController {
       );
       responseData.setData(build);
     } catch (error) {
-      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
+      responseData.setStatus(HttpStatus.BAD_REQUEST);
+      responseData.setMessage(HttpStatus.BAD_REQUEST, error.message);
     }
     return responseData;
   }
