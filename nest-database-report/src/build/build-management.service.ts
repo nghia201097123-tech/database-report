@@ -6,7 +6,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BuildEntity } from './entities/build.entity';
-import { CreateBuildDto } from './dto/req/create-build.ts';
+import { CreateBuildDto } from './dto/req/create-build';
 import { UpdateBuildDto } from './dto/req/update-build.dto';
 import { BuildStatusEnum } from 'src/utils/enum/BuildStatus';
 

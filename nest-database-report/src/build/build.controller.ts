@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, HttpStatus } from '@nestjs/common';
 import { ResponseData } from 'src/utils/response/utils.response.common';
 import { BuildManagementService } from './build-management.service';
 import { DataMigrationService } from './data-migration.service';
-import { CreateBuildDto } from './dto/req/create-build.ts';
+import { CreateBuildDto } from './dto/req/create-build';
 import { UpdateBuildDto } from './dto/req/update-build.dto';
 import { ChangeStatusBuild } from './dto/req/change-status-build';
 
@@ -24,7 +24,8 @@ export class BuildController {
       const builds = await this.buildManagementService.findAll();
       responseData.setData(builds);
     } catch (error) {
-      responseData.setError(error.message);
+      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
     return responseData;
   }
@@ -40,7 +41,8 @@ export class BuildController {
       const build = await this.buildManagementService.findOne(parseInt(id));
       responseData.setData(build);
     } catch (error) {
-      responseData.setError(error.message);
+      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
     return responseData;
   }
@@ -56,7 +58,8 @@ export class BuildController {
       const build = await this.buildManagementService.create(createBuildDto);
       responseData.setData(build);
     } catch (error) {
-      responseData.setError(error.message);
+      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
     return responseData;
   }
@@ -72,7 +75,8 @@ export class BuildController {
       const build = await this.buildManagementService.update(updateBuildDto);
       responseData.setData(build);
     } catch (error) {
-      responseData.setError(error.message);
+      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
     return responseData;
   }
@@ -93,7 +97,8 @@ export class BuildController {
       );
       responseData.setData(build);
     } catch (error) {
-      responseData.setError(error.message);
+      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
     return responseData;
   }
@@ -109,7 +114,8 @@ export class BuildController {
       await this.dataMigrationService.findAll2();
       responseData.setData({ message: 'Data migration completed' });
     } catch (error) {
-      responseData.setError(error.message);
+      responseData.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+      responseData.setMessage(HttpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
     return responseData;
   }
